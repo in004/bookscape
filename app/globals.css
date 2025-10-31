@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --bookscape-bg: #f8f5f0;
+  --bookscape-text: #2c3e50;
+  --bookscape-dark: #1a2a3a;
+  --bookscape-darker: #2c3e50;
+  --bookscape-gold: #e8c872;
+  --bookscape-gold-hover: #d4b15f;
+  --bookscape-accent: #c45d5d;
+  --bookscape-accent-hover: #b04545;
+  --bookscape-light: #f0e6d2;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+/* BookScape Theme */
+.bg-bookscape-bg {
+  background-color: var(--bookscape-bg);
+}
+
+.text-bookscape-text {
+  color: var(--bookscape-text);
+}
+
+.bg-bookscape-dark {
+  background-color: var(--bookscape-dark);
+}
+
+.bg-bookscape-darker {
+  background-color: var(--bookscape-darker);
+}
+
+.text-bookscape-gold {
+  color: var(--bookscape-gold);
+}
+
+.hover\:text-bookscape-gold:hover {
+  color: var(--bookscape-gold);
+}
+
+.hover\:bg-bookscape-darker:hover {
+  background-color: var(--bookscape-darker);
+}
+
+.hover\:bg-bookscape-dark:hover {
+  background-color: var(--bookscape-dark);
+}
+
+.focus\:border-bookscape-gold:focus {
+  border-color: var(--bookscape-gold);
+}
+
+.focus\:ring-bookscape-gold:focus {
+  --tw-ring-color: var(--bookscape-gold);
+}
+
+.bg-bookscape-gold {
+  background-color: var(--bookscape-gold);
+}
+
+.hover\:bg-bookscape-gold:hover {
+  background-color: var(--bookscape-gold);
+}
+
+.hover\:bg-bookscape-gold-hover:hover {
+  background-color: var(--bookscape-gold-hover);
+}
+
+.hover\:text-bookscape-dark:hover {
+  color: var(--bookscape-dark);
+}
+
+.bg-bookscape-accent {
+  background-color: var(--bookscape-accent);
+}
+
+.text-bookscape-accent {
+  color: var(--bookscape-accent);
+}
+
+.hover\:bg-bookscape-accent:hover {
+  background-color: var(--bookscape-accent);
+}
+
+.hover\:text-bookscape-accent:hover {
+  color: var(--bookscape-accent);
+}
+
+.bg-bookscape-light {
+  background-color: var(--bookscape-light);
+}
+
+/* Book card styles */
+.book-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Children's book grid */
+.children-book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.children-book-grid .book-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  aspect-ratio: 2 / 3;
+}
+
+.children-book-grid .book-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.children-book-grid .book-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.children-book-grid .book-item:hover img {
+  filter: brightness(1.05);
+}
+
+.children-book-grid .book-item.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Quote styles */
+.elegant-quote {
+  position: relative;
+  font-style: italic;
+  padding: 2rem 3rem;
+}
+
+.elegant-quote::before,
+.elegant-quote::after {
+  content: '"';
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  position: absolute;
+  opacity: 0.3;
+  color: var(--bookscape-gold);
+}
+
+.elegant-quote::before {
+  top: 0;
+  left: 0;
+}
+
+.elegant-quote::after {
+  bottom: -1.5rem;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--bookscape-gold);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Newsletter form */
+.newsletter-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--bookscape-gold);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Social icons */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: var(--bookscape-gold);
+}
+
+/* Decorative elements */
+.decorative-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--bookscape-gold), transparent);
+}
+
+.decorative-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--bookscape-gold);
+}

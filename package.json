@@ -1,0 +1,40 @@
+{
+  "name": "bookscape",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/react-paypal-js": "^8.8.3",
+    "axios": "^1.8.4",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "lucide-react": "^0.487.0",
+    "mongoose": "^8.13.1",
+    "next": "15.2.4",
+    "next-auth": "^4.24.11",
+    "nodemailer": "^6.10.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-select": "^5.10.1",
+    "sonner": "^2.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
+    "@types/paypal__checkout-server-sdk": "^1.0.8",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

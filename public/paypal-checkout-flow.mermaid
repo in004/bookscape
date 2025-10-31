@@ -1,0 +1,10 @@
+graph TD
+    A["User clicks 'Checkout' in Cart"] --> B["Cart validates stock"]
+    B --> C["API: /api/paypal/create-order"]
+    C --> D["lib/paypal.ts creates PayPal order"]
+    D --> E["User redirected to PayPal"]
+    E --> F["User pays on PayPal"]
+    F --> G["PayPal redirects to /checkout/success"]
+    G --> H["API: /api/paypal/capture-payments"]
+    H --> I["Payment captured & order updated in DB"]
+    I --> J["Cart cleared & success shown"]
